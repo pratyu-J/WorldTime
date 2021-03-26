@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter_app/services/world_time.dart';
+import 'package:intl/intl.dart';
 
 class WorldTime {
 
@@ -8,6 +8,7 @@ class WorldTime {
   String time;
   String flag;
   String url;
+  bool isDaytime;
 
   WorldTime({this.location, this.flag, this.url});
 
@@ -23,7 +24,9 @@ class WorldTime {
     DateTime now = DateTime.parse(dateTime);
     now  = now.add(Duration(hours: int.parse(hrs), minutes: int.parse(min)));
 
-    time = now.toString(); //set time property
+    isDaytime = now.hour > 6 && now.hour < 20? true : false;
+    print(isDaytime);
+    time = DateFormat.jm().format(now);
   }
 
 }

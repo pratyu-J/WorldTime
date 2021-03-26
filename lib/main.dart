@@ -12,8 +12,8 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => Loading(),
-      'home': (context) => Home(),
-      'location' : (context) => Location(),
+      '/home': (context) => Home(),
+      '/location' : (context) => Location(),
     },
   ));
 }
